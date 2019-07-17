@@ -1,0 +1,81 @@
+<secure-header></secure-header>
+<div class="inner-page">
+    <!-- 
+    <header class="head">
+        <div>
+            <img src="assets/img/logo.png" alt="goshadow" [routerLink]="['/']">
+        </div>
+    </header> -->
+
+    <div class="container example-sidenav-content">
+
+        <div class="go-box cont-box">
+            <div class="row justify-content-md-center">
+                <div class="col-md-12">
+                    <button mat-button (click)="createGroup()"> + New Group</button>
+                    <button mat-button (click)="createExperience()"> + New Experience</button>
+                    <spinner [visible]='isSpinner'></spinner>
+                </div>
+                <div class="col-md-12">
+                    <br>
+                    <div *ngIf="Groups?.length > 0">
+                        <h3 class="go-header">Recent Groups</h3>
+                        <mat-list class="showfive" role="list">
+
+                            <mat-card *ngFor="let g of Groups">
+                                <div (click)="navigateToSegment('groupexperience' , g)" style="padding:10px">
+                                    <div  class="pointer" style="width:95%">
+                                        {{g?.name}}
+                                    </div>
+                                    <mat-card-subtitle>{{g?.count}}</mat-card-subtitle>
+                                </div>    
+
+                                <div class="icons-box">
+                                    <i class="material-icons" (click)="editGroup(g)"> edit </i>
+                                    <i class="material-icons" (click)="deleteGroup(g)"> delete_forever </i>
+                                </div>
+
+                            </mat-card>
+
+                        </mat-list>
+
+                        <div class="v-al" style="padding:1% 1% 2% 1%">
+                            <a class="view-all" [routerLink]="['/all/groups']"> View All Groups</a>
+                        </div>
+
+
+                    </div>
+
+                    <mat-divider  style="border-top-color: rgba(0, 0, 0, .62);"></mat-divider>
+
+                    <div *ngIf="Experiences?.length > 0">
+                        <h3 class="go-header">Recent Experiences</h3>
+                        <mat-list role="list" class="showfive">
+                            <mat-card *ngFor="let e of Experiences" >
+                                <div  style="padding:10px">
+                                    <div  class="pointer" style="width:95%" (click)="navigateToSegment('individualexperience' , e)">
+                                        {{e?.name}}
+                                    </div>
+
+                                    <mat-card-subtitle>{{e?.count}}</mat-card-subtitle>
+                                </div>
+                                <div class="icons-box">
+                                    <i class="material-icons" (click)="editExperience(e)"> edit </i>
+                                    <i class="material-icons" (click)="deleteExperience(e)"> delete_forever </i>
+                                </div>
+
+                            </mat-card>
+
+                        </mat-list>
+                        <div class="v-al" style="padding:1% 1% 2% 1%">
+                            <a class="view-all" [routerLink]="['/all/experience']"> View All Experiences</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

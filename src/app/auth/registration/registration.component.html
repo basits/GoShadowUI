@@ -1,0 +1,177 @@
+<div class="inner-page">
+
+    <!-- <auth-header></auth-header> -->
+    <div class="section">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="elogo">
+                        <img src="assets/img/logo.png" alt="">
+                    </div>
+                    <div class="box">
+
+                        <mat-progress-bar *ngIf='isSubmitted' color="warn" mode="indeterminate"></mat-progress-bar>
+                        <h2>Signup</h2>
+                        <form [formGroup]="formRegister" autocomplete="on" (ngSubmit)=onSubmit()>
+                            <div class="row">
+                                <!-- First Name -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+
+                                        <mat-form-field class="full-width">
+                                            <input formControlName="firstName" matInput maxlength="100" placeholder="First Name"
+                                                [(ngModel)]="user.firstName" matTooltip='First Name should be a combination of characters and spaces'
+                                                required>
+                                            <mat-hint align="end">{{user.firstName?.length || 0}}/100</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['firstName'].errors?.required">
+                                                First Name is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['firstName'].errors?.pattern">
+                                                First Name is invalid
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <!-- Last Name -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+
+                                        <mat-form-field class="full-width">
+                                            <input formControlName="lastName" matInput maxlength="100" placeholder="Last Name"
+                                                [(ngModel)]="user.lastName" matTooltip='Last Name should be a combination of characters and spaces'
+                                                required>
+                                            <mat-hint align="end">{{user.lastName?.length || 0}}/100</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['lastName'].errors?.required">
+                                                Last Name is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['lastName'].errors?.pattern">
+                                                Last Name is invalid
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+
+                                        <mat-form-field class="full-width">
+                                            <input matInput [(ngModel)]="user.email" placeholder="Email"
+                                                formControlName="email" maxlength="50" required>
+                                            <mat-hint align="end">{{user.email?.length || 0}}/50</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['email'].errors?.required">
+                                                Email is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="!formRegister.controls['email'].errors?.required && (formRegister.controls['email'].errors?.pattern || formRegister.controls['email'].errors?.email) ">
+                                                Please enter a valid email
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['email'].errors?.notAvailable">
+                                                Email is not available
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+
+                                        <mat-form-field class="full-width">
+                                            <input formControlName="organizationName" matInput maxlength="100"
+                                                placeholder="Organization Name" [(ngModel)]="user.organizationName"
+                                                matTooltip='Last Name should be a combination of characters and spaces'
+                                                required>
+                                            <mat-hint align="end">{{user.organizationName?.length || 0}}/100</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['organizationName'].errors?.required">
+                                                Organization is
+                                                <strong>required</strong>
+                                            </mat-error>
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <!-- Password -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+
+                                        <mat-form-field class="full-width">
+                                            <input matInput [(ngModel)]="user.password" placeholder="Password"
+                                                maxlength="20" formControlName="password" [type]="phide ? 'password' : 'text'"
+                                                matTooltip='Password should be min 8 digit , max 20 digit and combination of alphanumberic and specified special characters (!@#$%^&*_+) with 1 uppercase letter, 1 lowercase letter and  1 numeric character'
+                                                required>
+                                            <mat-icon matSuffix (click)="phide = !phide">{{phide ? 'visibility' :
+                                                'visibility_off'}}</mat-icon>
+                                            <mat-hint align="end">{{user.password?.length || 0}}/20</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['password'].errors?.required">
+                                                Password is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['password'].errors?.pattern">
+                                                Password is invalid
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                </div>
+
+                                <!-- Confirm Password -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+
+                                        <mat-form-field class="full-width">
+                                            <input matInput [(ngModel)]="user.confirmPassword" placeholder="Confirm Password"
+                                                maxlength="20" formControlName="confirmPassword" [type]="cphide ? 'password' : 'text'"
+                                                required>
+                                            <mat-icon matSuffix (click)="cphide = !cphide">{{cphide ? 'visibility' :
+                                                'visibility_off'}}</mat-icon>
+                                            <mat-hint align="end">{{user.confirmPassword?.length || 0}}/20</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['confirmPassword'].errors?.required">
+                                                Confirm Password is
+                                                <strong>required</strong>
+                                            </mat-error>
+
+                                            <mat-error *ngIf="formRegister.controls['confirmPassword'].errors?.matchPassword">
+                                                <!-- <mat-error *ngIf="!isMatchPass == true"> -->
+                                                Confirm Password does not match
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="text-right">
+                                <button type="submit" color="accent"  class="go-btn" [disabled]="isSubmitted">Signup</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                    <div class="bottom-txt">
+                        Already have an account?
+                        <a [routerLink]="['/login']">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

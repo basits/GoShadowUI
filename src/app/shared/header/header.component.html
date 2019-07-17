@@ -1,0 +1,61 @@
+<header class="head"> 
+  <div class="container example-sidenav-content">
+ <div class="cont-box" style="margin-top:0">
+  <div >
+      <span><a class="left"></a></span>
+    <a [routerLink]="['/']"><img src="assets/img/logo.png" alt=""></a>
+    <button  (click)="sidenav.toggle()" style="float:right;margin-top:-6%" mat-button>
+        <i class="material-icons">
+          menu
+        </i>
+      </button>
+  </div>
+  <div class="container example-sidenav-content" style="margin:0 auto;text-align:right;clear:both;padding:0">
+    <input style="border: 0; border-radius: 2px; height: 2.3555rem; padding: 0 1rem 0 1rem; width: 30%; outline: none;
+    -webkit-transition: background-color .3s,color .3s; transition: background-color .3s,color .3s;" placeholder="Search ..." type="text" [(ngModel)]="search" name="searchKeyword"
+      (keyup.enter)="onSearch()" />
+    
+  </div>
+</div>
+</div>
+</header>
+
+<div class="sidebar">
+
+  <div class="top-side-nav">
+    <mat-sidenav-container class="example-container" autosize >
+      <mat-sidenav #sidenav mode={{mode}} [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')"
+        position="start">
+        <mat-list class="menu-list">
+        <mat-list-item style="border-bottom: 1px solid rgba(0, 0, 0, .09)">Hello, {{name}}</mat-list-item>
+        <mat-list-item style="border-bottom: 1px solid rgba(0, 0, 0, .09)" (click)="showMenu()">Groups:</mat-list-item>
+        <div *ngIf="isShowMenu">
+          <mat-list-item style="border-bottom: 1px solid rgba(0, 0, 0, .09)" (click)="showGroupDetail(g)" *ngFor="let g of Groups">
+              &nbsp;&nbsp; {{g?.name}}
+          </mat-list-item>
+      </div>  
+        <mat-list-item style="border-bottom: 1px solid rgba(0, 0, 0, .09)" (click)="navigate('howtouse')">
+            How To use GoShadow
+          </mat-list-item>
+          <mat-list-item style="border-bottom: 1px solid rgba(0, 0, 0, .09)" (click)="navigate('faq')">
+            FAQs
+          </mat-list-item>
+          <mat-list-item style="border-bottom: 1px solid rgba(0, 0, 0, .09)" (click)="navigate('support')">
+            <a href="https://www.goshadow.org/contact/" target="_blank" style="color:rgba(0, 0, 0, 0.87)">Support</a> 
+          </mat-list-item>
+          <mat-list-item style="border-bottom: 1px solid rgba(0, 0, 0, .09)" (click)="navigate('feedback')">
+            Feedback
+          </mat-list-item>
+          <mat-list-item (click)="logout()" style="border-bottom: 1px solid rgba(0, 0, 0, .09)">
+            Logout
+          </mat-list-item>
+          <mat-list-item style="font-size:12px" style="border-bottom: 1px solid rgba(0, 0, 0, .09)" (click)="navigate('privacyterm')">
+              <a href="https://www.goshadow.org/privacy/" target="_blank" style="color:rgba(0, 0, 0, 0.87)">Privacy | Terms</a>
+            </mat-list-item>
+        </mat-list>
+
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </div>
+</div>
+<br/>

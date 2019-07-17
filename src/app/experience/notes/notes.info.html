@@ -1,0 +1,105 @@
+<secure-header></secure-header>
+<div class="inner-page">
+  <div class="container example-sidenav-content">
+    <div class="go-box cont-box">
+      <div *ngIf="breadCrums && breadCrums.length == 4" style="color:white;">
+        <a (click)="breadCrumslink('', 'home')" style="color:white;cursor:pointer">Home</a> »
+        <a (click)="breadCrumslink(breadCrums[1].id, 'group')" style="color:white;cursor:pointer">{{breadCrums[1].name}}</a> »
+        <a (click)="breadCrumslink(breadCrums[2].id, 'experince')" style="color:white;cursor:pointer">{{breadCrums[2].name}}</a> »
+        <a (click)="breadCrumslink(breadCrums[3].id, 'segment')" style="color:white;cursor:pointer">{{breadCrums[3].name}}</a> »
+        <span style="color:white">{{breadCrums[0].name}}</span>
+      </div>
+      <div *ngIf="breadCrums && breadCrums.length == 3" style="color:white;">
+        <a (click)="breadCrumslink('', 'home')" style="color:white;cursor:pointer">Home</a> »
+
+        <a (click)="breadCrumslink(breadCrums[1].id, 'experince')" style="color:white;cursor:pointer">{{breadCrums[1].name}}</a> »
+        <a (click)="breadCrumslink(breadCrums[2].id, 'segment')" style="color:white;cursor:pointer">{{breadCrums[2].name}}</a> »
+        <span style="color:white">{{breadCrums[0].name}}</span>
+      </div>
+      <br/>
+      <h3 _ngcontent-c2="" class="go-header" *ngIf="Note.type == 'Location'"> Place </h3>
+      <h3 _ngcontent-c2="" class="go-header" *ngIf="Note.type == 'Person'"> Person </h3>
+      <h3 _ngcontent-c2="" class="go-header" *ngIf="Note.type == 'Task'"> Task </h3>
+        <div class="box" style="margin-top:5px">
+
+          <div class="location-marker" *ngIf="Note.type == 'Location'">
+            <i class="material-icons">
+              location_on </i>
+            <p class="inline-block m-a-0">Location</p>
+            <i class="fa fa-chevron-down inline-block"></i>
+          </div>
+          <div class="form-field">
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Notes" [(ngModel)]="Note.text"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field class="example-full-width">
+              <input matInput type='datetime-local' placeholder="Start Time" [(ngModel)]="Note.starttime">
+            </mat-form-field>
+
+          </div>
+          <div class="form-field">
+            <mat-form-field class="example-full-width">
+              <input matInput type='datetime-local' placeholder="End Time" [(ngModel)]="Note.endtime">
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field class="example-full-width">
+              <input matInput type='text' placeholder="Duration" [disabled]="true" [(ngModel)]="Note.duration">
+            </mat-form-field>
+
+          </div>
+          <div class="form-field">
+            <mat-form-field class="example-chip-list">
+              <mat-chip-list #chipList>
+                <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable" (removed)="remove(tag)">
+                  {{tag}}
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="Tags" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="add($event)">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+          <upload-pic [noteId]="Note.notesId"></upload-pic>
+          <div class="btn-up-box">
+            <label for="file-upload" class="custom-file-upload">
+              <button mat-raised-button color="primary">
+                <i class="fa fa-cloud-upload"></i> Custom Upload</button>
+            </label>
+            <input #file type="file" multiple (change)="upload(file.files)" color="primary" />
+          </div>
+          <br />
+          <span style="font-weight:bold;color:green;" *ngIf="progress > 0 && progress < 100">
+            {{progress}}%
+          </span>
+
+          <div class="row">
+            <div *ngFor="let img of imgArray" class="col-md-2">
+              <div style="text-align:right;" *ngIf="img.isShow">
+                <img src="https://uploads-ssl.webflow.com/5b3951ea99d87d6e5c0234e8/5b3a444a95e6fd83cdcb3d27_icons8-cancel-240.png" (click)="deletePhoto(img)"
+                  style="width:20px;height:20px" />
+                <img [src]="'data:'+img.mimeType+';base64,'+img.file" style="width:150px;height:150px;border:1px solid #ccc; padding:5px"
+                />
+              </div>
+
+            </div>
+
+          </div>
+          <br />
+          <div>
+            <img src="assets/img/thumbs-up.png" alt="" class="like-images" (click)="isLike(true)" *ngIf="!Note.isLike">
+            <img src="assets/img/thumbs-up-done.png" alt="" class="like-images" (click)="isLike(false)" *ngIf="Note.isLike">
+            <!--  <img src="assets/img/thumbs-down.png" alt="" class="like-images" (click)="isDisLike(true)" *ngIf="!Note.isDisLike">
+          <img src="assets/img/thumbs-down-done.png" alt="" class="like-images" (click)="isDisLike(false)" *ngIf="Note.isDisLike">-->
+
+            <img src="assets/img/unflag.png" alt="" class="like-images" (click)="isFavourite()" *ngIf="!Note.isFavourite">
+            <img src="assets/img/flag.png" alt="" class="like-images" (click)="isUnFavourite()" *ngIf="Note.isFavourite">
+          </div>
+          <p>Shadowed by: {{name}}</p>
+          <button mat-raised-button color="primary" (click)="createNotes()">Save Note</button>
+        </div>
+      </div>
+    
+  </div>

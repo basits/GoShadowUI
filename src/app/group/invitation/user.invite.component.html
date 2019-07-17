@@ -1,0 +1,70 @@
+<secure-header></secure-header>
+<div class="inner-page">
+
+
+    <div class="container">
+        <div   style="color:white" style="margin-top:12%">
+            <a (click)="breadCrumslink('', 'home')" style="color:white;cursor:pointer">Home »</a>   
+            <a (click)="breadCrumslink(this.groupDetail.id, 'group')" style="color:white;cursor:pointer">{{this.groupDetail.name}} »</a> 
+            <span style="color:white">Group Members</span>
+          </div>
+          <br/>
+        <div class="row justify-content-md-center">
+            
+            <div class="box cont-box" style="margin-top:0px">
+                <h2 style="text-align: center">{{this.groupDetail.name}}</h2>
+
+                <br/>
+                <div class="form-field">
+                    <div class="row">
+                        <h4 style="padding: 0 15px">Invite Group Members</h4>
+                        <mat-form-field class="col-md-10">
+                            <input matInput placeholder="Tim.Smith@gmail.com" [(ngModel)]="email" required [ngModelOptions]="{standalone: true}" />
+                        </mat-form-field>
+                        <div class="col-md-2">
+                            <button mat-raised-button class="mat-raised-button mat-primary" (click)="sent()">ADD</button>
+                        </div>
+                    </div>
+
+                </div>
+                <p style="font-size:13px">
+                        Enter the email of the person you'd like to invite to your group. If they have a goShadow account, they'll get a notification that you've invited them. If they don't have a goShadow account, they'll get an email that prompts them to create one and to accept your group invitation.
+                </p>
+
+               <!-- <div>
+                    <h3>Group Members</h3>
+                    <mat-list *ngFor="let u of Users">
+                        <h6>{{u}}</h6>
+                    </mat-list>
+
+                </div> -->
+
+                <h3>Group Members</h3>
+                <div class="row">
+                    <div style="width:20%" *ngFor="let users of GroupMembers">
+                        <mat-list >
+                            <div style="text-align:right;width:80%">
+                                <img src="https://uploads-ssl.webflow.com/5b3951ea99d87d6e5c0234e8/5b3a444a95e6fd83cdcb3d27_icons8-cancel-240.png" (click)="deleteMember(users)" style="width:20px;height:20px"/>
+                            </div>
+                            <div style="margin:0 auto;text-align:center;">
+                                <img src="https://www.nashvillegeneral.org/sites/nashvillegeneral.org/files/styles/physician_thumbnail/public/default_images/doctor-default-photo.png?itok=WnjMVOlv" class="userpic" />
+                                <p>{{users.name}}</p>
+                                <p style="font-size:13px">{{users.email}}</p>
+                                <p style="font-size:13px">{{users.status}}</p>
+                            </div>    
+                            <mat-divider ></mat-divider>
+                                    
+                        </mat-list>
+                    </div>
+                </div>
+               <!-- <button mat-raised-button color="primary" (click)="sent()">Sent Invitation</button> -->
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

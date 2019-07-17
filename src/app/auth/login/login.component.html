@@ -1,0 +1,49 @@
+<!-- For Login page -->
+<div class="inner-page">
+
+    <!-- <auth-header></auth-header> -->
+
+    <div class="section login">
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-4">
+                    <div class="elogo">
+                        <img src="assets/img/logo.png" alt="">
+
+                    </div>
+                    <div class="box">
+
+                        <mat-progress-bar *ngIf='isSubmitted' color="warn" mode="indeterminate"></mat-progress-bar>
+
+                        <form [formGroup]="formLogin" (ngSubmit)="login()" autocomplete="on">
+                            <div class="form-field">
+                                <mat-form-field class="full-width">
+                                    <input formControlName="email" matInput #input placeholder="Email" [(ngModel)]="user.email"
+                                        (focusout)="onEmailFocusOut()" required>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-field">
+                                <mat-form-field class="full-width">
+                                    <input formControlName="password" matInput value="" type="password" #input
+                                        placeholder="Password" [(ngModel)]="user.encryptedPassword" required>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <button type="submit" class="go-btn" [disabled]="isSubmitted">Login</button>
+                            </div>
+
+                            <div class="login-bottom-txt">
+                               <p><a [routerLink]="['/forgot-password']">Forgot Password?</a></p>
+                               <p>Don’t have an account? <a [routerLink]="['/registration']">Sign Up </a></p>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

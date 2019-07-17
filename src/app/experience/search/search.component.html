@@ -1,0 +1,153 @@
+<secure-header></secure-header>
+
+<div class="inner-page">
+<!-- 
+  <header class="head">
+    <div>
+      <img src="assets/img/logo.png" alt="">
+    </div>
+
+  </header> -->
+
+
+  <div class="container go-box cont-box">
+
+   
+
+    <!-- <div class="segment-block" *ngIf="SegmentName"> {{SegmentName}} </div>
+
+
+    <button mat-button (click)="createNote()"> + Create Note</button>
+    <button mat-button (click)="createRefrence()">Add Timer</button> -->
+
+
+
+
+    <div class="row md-padding-left-20 md-padding-right-20" *ngFor="let ns of NoteSegment">
+      <div class="col-12">
+
+        <div class="notes-content-box">
+          <a>
+
+
+            <div class="row" *ngIf="ns.type == 'Location'">
+              <div class="col-6 col-sm-8 waiting-box-border xs-padding-right-0">
+
+                <div class="inline-block left location-image-box">
+                  <img src="assets/img/location.png" alt="" class="notes-image">
+                </div>
+
+                <div class="inline-block waiting-text-box" (click)="navigate(ns)">
+                  <p class="m-a-0">{{ns.text}}</p>
+                </div>
+
+                <div>
+                  <i class="material-icons" (click)="deleteNote(ns)"> delete_forever </i>
+                </div>
+
+
+              </div>
+              <div class="col-6 col-sm-4 xs-padding-left-0">
+                <div class="inline-block left play-image-box">
+                  <img src="assets/img/stop.png" alt="" class="notes-image" (click)="pauseTimer(ns)" *ngIf="ns.check == true">
+                  <img src="assets/img/play.png" alt="" class="notes-image" (click)="startTimer(ns)" *ngIf="ns.check  == false">
+
+                </div>
+                <div class="inline-block time-box">
+                  <p class="m-a-0 time-text">{{ns.duration || '00:00:00'}}</p>
+                  <!--<p class="m-a-0 long-time-text">{{ns.endtime}}</p>-->
+                </div>
+              </div>
+              <div>
+                <img src="assets/img/top-style.png" class="top-style-image">
+              </div>
+            </div>
+
+            <div *ngIf="ns.type == null">
+              <div class="inline-block left segment-notes-image-box notes-image-box">
+                <img src="assets/img/notepad.png" alt="" class="notes-image">
+              </div>
+              <div class="inline-block waiting-text-box check-patient-text-box"  (click)="navigate(ns)">
+                <p class="m-a-0" style="padding:9.5px 0">{{ns.text}}</p>
+                
+              </div>
+
+
+
+              <!-- <div class="inline-block right m-t xs-margin-top-12">
+                    <p class="m-a-0"><i class="fa fa-chevron-right font-30"></i></p>
+                  </div> -->
+
+
+            </div>
+
+
+            <div class="row" *ngIf="ns.type == 'Person'">
+              <div class="col-6 col-sm-8 waiting-box-border xs-padding-right-0">
+                <div class="inline-block left patient-image-box">
+                  <img src="assets/img/user.png" alt="" class="notes-image">
+                </div>
+                <div class="inline-block waiting-text-box">
+                  <p class="m-a-0">{{ns.text}}</p>
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 xs-padding-left-0">
+                <div class="inline-block left play-image-box">
+                  <img src="assets/img/stop.png" alt="" class="notes-image" (click)="pauseTimer(ns)" *ngIf="ns.check == true">
+                  <img src="assets/img/play.png" alt="" class="notes-image" (click)="startTimer(ns)" *ngIf="ns.check  == false">
+
+                </div>
+                <div class="inline-block time-box">
+                  <p class="m-a-0 time-text">{{ns.duration || '00:00:00'}}</p>
+                  <!--<p class="m-a-0 long-time-text">{{ns.endtime}}</p>-->
+                </div>
+                <!-- <div class="inline-block right m-t xs-margin-top-12">
+                    <p class="m-a-0"><i class="fa fa-chevron-right font-30"></i></p>
+                  </div> -->
+              </div>
+            </div>
+
+
+            <div class="row" *ngIf="ns.type == 'Task'">
+
+              <div class="col-6 col-sm-8 waiting-box-border xs-padding-right-0">
+                <div class="inline-block left check-patient-image-box">
+                  <img src="assets/img/check-patient.png" alt="" class="notes-image">
+                </div>
+                <div class="inline-block waiting-text-box check-patient-text-box">
+                  <p class="m-a-0">{{ns.text}}</p>
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 xs-padding-left-0">
+                <div class="inline-block left play-image-box">
+                  <img src="assets/img/stop.png" alt="" class="notes-image" (click)="pauseTimer(ns)" *ngIf="ns.check == true">
+                  <img src="assets/img/play.png" alt="" class="notes-image" (click)="startTimer(ns)" *ngIf="ns.check  == false">
+                </div>
+                <div class="inline-block time-box">
+                  <p class="m-a-0 time-text">{{ns.duration || '00:00:00'}}</p>
+                 <!-- <p class="m-a-0 long-time-text">{{ns.endtime}}</p>-->
+                </div>
+                <!-- <div class="inline-block right m-t xs-margin-top-12">
+                    <p class="m-a-0"><i class="fa fa-chevron-right font-30"></i></p>
+                  </div> -->
+              </div>
+              <div>
+                <img src="assets/img/top-style.png" class="top-style-image">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>

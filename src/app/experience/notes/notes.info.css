@@ -1,0 +1,16 @@
+ .btn-up-box {
+     position : relative;
+ }
+ 
+ .btn-up-box input[type="file"] {
+    position: absolute;
+    left: 0;
+    width: 148px;
+    height: 35px;
+    opacity: 0;
+    cursor: pointer;
+}
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+}

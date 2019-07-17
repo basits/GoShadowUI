@@ -1,0 +1,42 @@
+<secure-header></secure-header>
+<div class="inner-page">
+
+
+
+
+  <div class="container">
+
+    <div class="row justify-content-md-center">
+
+      <div class="go-box cont-box">
+
+        <button mat-button (click)="createExperience()">Create Experiences</button>
+
+        <mat-list class="showfive" role="list">
+
+          <mat-card *ngFor="let g of Groups">
+            <div (click)="navigateToSegment('groupexperience' , g)" class="pointer">
+              {{g.name}}
+            </div>
+
+            <mat-card-subtitle>{{g?.count}}</mat-card-subtitle>
+
+            <div class="icons-box">
+                <i class="material-icons" (click)="editGroup(g)"> edit </i>
+                <i class="material-icons" (click)="deleteGroup(g)"> delete_forever </i>
+            </div>
+          </mat-card>
+
+
+        </mat-list>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,24 @@
+<div>
+        <div style="float:right;cursor: pointer;" (click)="onNoClick()">X</div>
+    <form name="form" #a="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+        <div class="row align-item-center">
+            <div class="col-md-12">
+                <h1 mat-dialog-title>Create Segment </h1>
+            </div>
+            <div class="col-lg-12">
+                <p>What piece of segment are you shadowing?</p>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Enter Segment" name="categoryName" [(ngModel)]="groupname" required />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+            <div class="col-lg-12 col-md-12 col-sm-12 textright">
+                <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                <button mat-raised-button [disabled]="!a.form.valid" color="primary" (click)="onYesClick(fieldType)"
+                    tabindex="2">SUBMIT</button>
+            </div>
+        </div>
+    </form>
+</div>

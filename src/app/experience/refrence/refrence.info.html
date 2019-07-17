@@ -1,0 +1,69 @@
+<div style="float:right;cursor: pointer;" (click)="onNoClick()">X</div>
+<div class="row justify-content-md-center">
+
+
+
+
+  <mat-tab-group>
+
+    <mat-tab label="Person">
+
+      <mat-form-field class="example-full-width" style="width:100%;margin-top:5%">
+        <input matInput placeholder="Person" [(ngModel)]="Person" (ngModelChange)="filterPerson()" [matAutocomplete]="auto">
+
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions" [value]="option">
+            {{option.text}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 textright" style="text-align: right;">
+        <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+        <button mat-raised-button color="primary" (click)="createNotes('Person')">SUBMIT</button>
+      </div>
+
+    </mat-tab>
+    <mat-tab label="Place">
+
+      <mat-form-field style="width:100%;margin-top:5%">
+        <input matInput placeholder="Place" [(ngModel)]="Location" (ngModelChange)="filterLocation()" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions" [value]="option" (onSelectionChange)="callSomeFunction()">
+            {{option.text}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+
+      <div class="col-lg-12 col-md-12 col-sm-12 textright" style="text-align: right;">
+        <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+        <button mat-raised-button color="primary" (click)="createNotes('Location')">SUBMIT</button>
+      </div>
+
+    </mat-tab>
+
+    <mat-tab label="Task">
+
+      <mat-form-field style="width:100%;margin-top:5%">
+        <input matInput placeholder="Task" [(ngModel)]="Task" (ngModelChange)="filterTask()" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions" [value]="option">
+            {{option.text}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 textright" style="text-align: right;">
+        <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+        <button mat-raised-button color="primary" (click)="createNotes('Task')">SUBMIT</button>
+      </div>
+
+
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+
+</div>

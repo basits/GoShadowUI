@@ -1,0 +1,32 @@
+
+/* date: 27 March, 2018 */
+.inner-page  {  background-image: linear-gradient(315deg, #1b1838, #405484);
+}
+    p.bold.ft-14 {
+        font-weight: 900;
+    }
+
+
+    .inner-page:before {
+        content: '';
+        background: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+  
+
+    .inner-page .round-btn.login, .inner-page .round-btn.signup {
+        /* background: #6cb53f; */
+        background-image: linear-gradient(0deg, #419eaa, #59c6a9) !important; 
+        color: #fff !important;
+    }
+    
+
+    /* label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder.ng-tns-c4-0.mat-empty.mat-form-field-empty.ng-star-inserted{
+
+color: #fff !important;
+
+
+    } */

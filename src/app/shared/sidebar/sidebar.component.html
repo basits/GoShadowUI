@@ -1,0 +1,128 @@
+<div class="col-md-3">
+  <aside class="sidebar">
+    <div class="scrollable">
+      <div class="menu-btn">
+          <i class="fa fa-bars bold ft-14"></i> Menu           
+      </div>
+      <ul class="navigation">
+        <li>
+          <a href="">                                 
+            <i class="fa fa-dashboard"></i>
+            Dashboard
+          </a>
+        </li> 
+
+        <li>
+          <a href="">                                 
+            <i class="fa fa-user-circle"></i>
+            Profile
+          </a>
+        </li>
+
+        <li>
+          <a href="">                                 
+            <i class="fa fa-money"></i>
+            Purchase orders
+          </a>
+        </li>
+
+        <li>
+          <a href="">                                 
+            <i class="fa fa-ship"></i>
+            Advance Shipping Notices
+          </a>
+        </li>
+
+        <li>
+          <a href="">                                 
+            <i class="fa fa-newspaper-o"></i>
+            Goods Recieved Notices
+          </a>
+        </li>
+
+        <li>
+          <a href="">                                 
+            <i class="fa fa-file-text-o"></i>
+            Invoices
+          </a>
+        </li>
+
+        <li>
+          <a href="">                                 
+            <i class="fa fa-usd"></i>
+            Payments
+          </a>
+        </li>
+
+        <!-- <li>
+          <a (click)="expandRow(1)">
+            <i class="fa fa-balance-scale"> </i>  
+            Post Management
+            <span>
+              <i class="right-ico fa " [ngClass]="(1 === expandedIndex)?'fa-chevron-up':'fa-chevron-down'"></i>
+            </span>
+          </a>
+          <ul class="sub" [ngClass]="(1 === expandedIndex)?'show':''">
+            <span *ngIf="1 === expandedIndex">
+              <li>
+                <a (click)="navigate('/admin/posts/list')">
+                  <i class=" fa fa-list"></i>
+                  Post List 
+                </a>
+              </li>
+              <li>
+                <a (click)="navigate('/case/create')">
+                  <i class="fa fa-plus"></i>
+                  Create Case
+                </a>
+              </li>
+            </span>
+          </ul>
+        </li> -->
+
+        <!-- <li>
+          <a (click)="expandRow(2)">
+            <i class="fa fa-users"></i>                                
+            User Management
+            <span>
+              <i class="right-ico fa " [ngClass]="(2 === expandedIndex)?'fa-chevron-up':'fa-chevron-down'"></i>
+            </span>
+          </a>
+          <ul class="sub" [ngClass]="(2 === expandedIndex)?'show':''">
+            <span *ngIf="2 === expandedIndex">
+              <li>
+                <a (click)="navigate('/admin/users/list')">
+                  <i class=" fa fa-list"></i>
+                  User List 
+                </a>
+              </li>
+              <li>
+                <a (click)="navigate('/admin/users/add')">
+                  <i class="fa fa-user-plus"></i>
+                  Add User
+                </a>
+              </li>
+            </span>
+          </ul>
+        </li> -->
+
+        <li>
+          <a href="">                                 
+            <i class="fa fa-sign-out"></i>
+            Signout
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </aside>
+</div>
+
+
+
+
+
+<mat-sidenav-container class="example-container" *ngIf="shouldRun">
+    <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+    <mat-sidenav-content>Main content</mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,53 @@
+<div *ngIf="type==='experience'">
+    <h1 mat-dialog-title>Delete Experience</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick('experience')" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="type==='segment'">
+    <h1 mat-dialog-title>Delete Segment</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick('segment')" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="type==='group'">
+    <h1 mat-dialog-title>Delete Group</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick('group')" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="type==='note'">
+    <h1 mat-dialog-title>Delete Note</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick('note')" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>

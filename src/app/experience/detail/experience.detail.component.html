@@ -1,0 +1,46 @@
+<secure-header></secure-header>
+<div class="inner-page">
+
+  <!-- <header class="head">
+    <div>
+      <img src="assets/img/logo.png" alt="">
+    </div>
+  </header> -->
+
+  <div class="container">
+
+    <div class="row justify-content-md-center">
+
+      <div class="go-box cont-box">
+
+
+        <button mat-button (click)="createExperience()">Create Experiences</button>
+       <!-- <button mat-button (click)="createSegment()">Add New Segments</button> -->
+
+        <h3 class="go-header">Experiences</h3>
+
+        <mat-list role="list">
+          <div *ngFor="let e of Experiences">
+          <mat-card *ngIf="e.id" >
+            <div (click)="navigateToSegment('individualexperience' , e)"  style="width:90%"> 
+              {{e?.name}}
+            </div>
+
+            <mat-card-subtitle>{{e?.count}}, {{e?.notesCount}}</mat-card-subtitle>
+
+            <div class="icons-box">
+              <i class="material-icons" (click)="editExperience(e)"> edit </i>
+              <i class="material-icons" (click)="deleteExperience(e)"> delete_forever </i>
+            </div>
+
+
+          </mat-card>
+        </div>
+        </mat-list>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

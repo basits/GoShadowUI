@@ -1,0 +1,49 @@
+<secure-header></secure-header>
+
+<div class="inner-page">
+
+  <!-- <header class="head">
+    <div>
+      <img src="assets/img/logo.png" alt="">
+    </div>
+  </header> -->
+
+  <div class="container example-sidenav-content">
+    <div class="go-box cont-box">
+      <div *ngIf="(breadCrums && breadCrums.length > 1); else expname" style="color:white">
+        <a style="color:white;cursor:pointer" (click)="breadCrumslink(breadCrums[0].id, 'home')">Home</a> »
+        <a style="color:white;cursor:pointer" (click)="breadCrumslink(breadCrums[0].id, 'group')">{{breadCrums[0].name}}</a> »
+        <span style="color:white">{{breadCrums[1].name}}</span>
+      </div>
+      <ng-template #expname>
+        <div *ngIf="breadCrums && breadCrums.length == 1" style="color:white">
+          <a style="color:white;cursor:pointer" (click)="breadCrumslink(breadCrums[0].id, 'home')">Home</a> »
+          <span style="color:white">{{breadCrums[0].name}}</span>
+        </div>
+      </ng-template>
+
+      <br/>
+
+      <button mat-button (click)="createSegment()">Add New Segments</button>
+
+      <div>
+        <h3 class="go-header">Segments</h3>
+
+        <mat-list role="list">
+
+          <mat-card *ngFor="let s of Segments">
+
+            <div (click)="navigate(s)" style="width:90%" class="pointer">
+              {{s.name}}
+            </div>
+            <mat-card-subtitle>{{s?.count}}, {{s?.notesCount}}</mat-card-subtitle>
+            <div class="icons-box">
+              <i class="material-icons" (click)="editSegment(s)"> edit </i>
+              <i class="material-icons" (click)="deleteSegment(s)"> delete_forever </i>
+            </div>
+          </mat-card>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+</div>

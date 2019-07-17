@@ -1,0 +1,336 @@
+/* You can add global styles to this file, and also import other style files */
+
+ /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+@import '~material-design-icons/iconfont/material-icons.css'; 
+
+/* Main Page */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~roboto-fontface/css/roboto/roboto-fontface.css";
+
+html {
+    background-color: #405484;
+    /* background-image: -webkit-linear-gradient(135deg, #1b1838, #405484);
+    background-image: linear-gradient(315deg, #1b1838, #405484); */
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+body {
+    background-color: transparent;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.go-box {
+    padding: 30px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.form-field {
+    width: 100%;
+  }
+
+
+  .form-field .mat-form-field {
+      display: block;
+  }
+
+  .login-bottom-txt {
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.elogo img {
+    width: 220px;
+    margin: 40px auto 30px;
+    display: block;
+}
+
+.cont-box  {
+    max-width: 1180px;
+    margin: 20px auto;
+    width: 87.5%;
+    margin-top:8rem; 
+}
+/* .container{margin-top:7rem; } */
+.mtn-button{
+    background-image: -webkit-linear-gradient(90deg, #419eaa, #59c6a9) !important;
+    background-image: linear-gradient(0deg, #419eaa, #59c6a9) !important;
+    color: #fff;
+
+
+
+}
+
+.like-images {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.head {
+    background-color: #1b1838;
+    padding: 5px;
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.head img{
+    width: 200px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Block css */
+
+.notes-content-box {
+    background-color: white;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 0px 10px 0px 0px;
+}
+
+
+.waiting-box-border {
+    border-right: 1px solid lightgrey;
+}
+
+
+.location-image-box {
+    background-color: #1b1838;
+    padding: 20px 11px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+.inline-block {
+    display: inline-block;
+}
+
+.notes-image {
+    height: 25px;
+}
+
+
+.waiting-text-box {
+    font-size: 16px;
+    padding: 5px !important;
+}
+
+.m-a-0 {
+    margin: 0 !important;
+}
+
+.play-image-box {
+    padding: 14px;
+}
+
+.left {
+    float: left;
+}
+
+.time-box {
+    padding: 7px 0px;
+}
+
+
+
+.top-style-image {
+    position: absolute;
+    right: 15px;
+    height: 25px;
+}
+
+.notes-image-box {
+    background-color: #dfbb4b;
+    padding: 11px 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.segment-notes-text-box {
+    width: 85%;
+    font-size: 16px;
+    padding: 0px;
+    margin-left: 5px;
+}
+
+.patient-image-box {
+    background-color: #405484;
+    padding: 18px 8px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.check-patient-image-box {
+    background-color: #59c6a9;
+    padding: 20px 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+mat-list.mat-list.showfive .mat-card:nth-child(n+6) {
+    display: none !important;
+}
+
+.spinner-wave {
+    margin: 0px auto;
+    /* width: 20px; */
+    height: 20px;
+    text-align: center;
+}
+
+.go-btn{
+    width: 100%;
+    background-image: -webkit-linear-gradient(90deg, #419eaa, #59c6a9) !important;
+    background-image: linear-gradient(0deg, #419eaa, #59c6a9) !important;
+    color: #fff;
+    padding: 10px;
+}
+
+.mat-divider {
+    display: block;
+    border-top-width: 1px;
+    margin: 20px !important;
+    border-top-style: solid;
+    border-top-color: rgba(0, 0, 0, .62);
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button {
+    background: #1b1838 !important;
+    color: white !important;
+}
+
+.mat-card {
+    margin: 4px !important;
+    padding: 20px !important; 
+}
+
+.go-header{
+    color: white !important;
+    margin: 5px auto;
+}
+
+.view-all{
+    color: white;
+    text-decoration: none;
+    float: right;
+}
+
+.v-al{
+    margin: 10px auto;
+    display: block;
+}
+
+
+.inner-search {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: -5px ;
+    position: relative;
+    box-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
+
+.inner-search .search-text {
+    border: 0;
+    border-radius: 2px;
+    height: 2.3555rem;
+    padding: 0 1rem 0 5rem !important;
+    width: 100%;
+    outline: none;
+    transition: background-color 300ms, color 300ms;
+}
+.inner-search input.search-text {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #999;
+}
+.inner-search .search-text:focus {
+    background-color: rgba(255, 255, 255, 1);
+    color: #333;
+}
+.inner-search mat-icon.mat-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.3rem;
+    height: 97%;
+    width: 3rem;
+    text-align: center;
+    line-height: 2.3555rem;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+    transition: color 300ms;
+    transition: color 300ms;
+    transition: color 300ms;
+    background: #fff;   
+}
+.inner-search .search-text:focus ~ mat-icon.mat-icon {
+    color: #333;
+}
+.inner-search .search-text::-webkit-input-placeholder { /* Chrome */
+  color: #666;
+}
+.inner-search .search-text:-ms-input-placeholder { /* IE 10+ */
+  color: #666;
+}
+.inner-search .search-text::-moz-placeholder { /* Firefox 19+ */
+  color: #666;
+  opacity: 1;
+}
+.inner-search .search-text:-moz-placeholder { /* Firefox 4 - 18 */
+  color: #666;
+  opacity: 1;
+}
+
+.segment-block{
+
+    background-color: #1b1838;
+    color: white;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    font-size: x-large;
+    font-style: normal;
+    font-weight: 500;
+    display: block;
+
+}
+
+.icons-box{
+    float: right;
+    position: relative;
+    top: -50px;
+    cursor: pointer;
+}
+
+.pointer{
+    cursor: pointer;
+}
+  
+.userpic {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  
+    object-fit: cover;
+  }
+
+/* .mat-list .mat-list-item, .mat-list .mat-list-option, .mat-nav-list .mat-list-item, .mat-nav-list .mat-list-option, .mat-selection-list .mat-list-item, .mat-selection-list .mat-list-option {
+    display: block;
+    height: 14px !important;
+} */

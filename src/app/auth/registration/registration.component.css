@@ -1,0 +1,15 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  
+
+  .inner-page .round-btn.signup {
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#419eaa), to(#59c6a9)) !important;
+    background-image: linear-gradient(0deg, #419eaa, #59c6a9) !important;
+    color: #fff !important;
+}
